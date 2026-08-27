@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed A. Ghonem — Creator Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #eef0f4;
+    --panel: #ffffff;
+    --panel-2: #f4f5f8;
+    --line: #e1e4ea;
+    --text: #1b1e26;
+    --text-dim: #5b6172;
+    --text-faint: #8b91a1;
+    --red: #d81f2f;
+    --red-dim: #f6c9cd;
+    --gold: #c8860a;
+    --teal: #0f9e8e;
+    --grad: linear-gradient(90deg, var(--red), var(--gold));
+    --radius: 14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 15% -10%, rgba(216,31,47,0.06), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(15,158,142,0.06), transparent 35%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    padding: 28px 16px 60px;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .display{font-family:'Bebas Neue', sans-serif; letter-spacing: 0.5px;}
+
+  /* ---- Top ticker bar ---- */
+  .ticker-bar{
+    max-width:1180px; margin:0 auto 22px; height:34px;
+    background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    display:flex; align-items:center; overflow:hidden; position:relative;
+    box-shadow:0 1px 3px rgba(20,24,35,0.04);
+  }
+  .ticker-tag{
+    background:var(--red); color:#fff; font-family:'Bebas Neue',sans-serif;
+    font-size:13px; letter-spacing:1.5px; height:100%; display:flex; align-items:center;
+    padding:0 14px; flex-shrink:0; z-index:2;
+  }
+  .ticker-track{ display:flex; white-space:nowrap; animation: scroll 22s linear infinite; }
+  .ticker-track span{
+    padding:0 28px; font-size:12.5px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace;
+    display:flex; align-items:center; gap:8px;
+  }
+  .live-dot{width:6px; height:6px; border-radius:50%; background:var(--red); box-shadow:0 0 6px rgba(216,31,47,.5);
+    animation: blink 1.4s infinite;}
+  @keyframes blink{0%,100%{opacity:1} 50%{opacity:.25}}
+  @keyframes scroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* ---- Layout ---- */
+  .wrap{max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 340px 1fr; gap:20px;}
+  @media(max-width:900px){ .wrap{grid-template-columns:1fr;} }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 1px 3px rgba(20,24,35,0.04);}
+
+  /* ---- Profile card ---- */
+  .profile{ padding:28px 24px 24px; position:relative; overflow:hidden;}
+  .profile::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--grad);
+  }
+  .avatar-wrap{ width:132px; height:132px; margin:0 auto 16px; position:relative; }
+  .avatar-wrap img{
+    width:100%; height:100%; object-fit:cover; border-radius:50%;
+    border:3px solid var(--panel); box-shadow:0 0 0 2px var(--red), 0 8px 22px rgba(20,24,35,0.12);
+  }
+  .onair{
+    position:absolute; bottom:-2px; left:50%; transform:translateX(-50%);
+    background:var(--red); color:#fff; font-family:'Bebas Neue',sans-serif;
+    font-size:10.5px; letter-spacing:1.5px; padding:2px 9px; border-radius:20px;
+    white-space:nowrap; box-shadow:0 2px 8px rgba(20,24,35,0.2);
+  }
+  .name{ text-align:center; font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:1px; margin-top:6px;}
+  .role{ text-align:center; color:var(--gold); font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; font-weight:700;}
+  .loc{ text-align:center; color:var(--text-faint); font-size:12.5px; margin-top:2px;}
+
+  .socials{ display:flex; justify-content:center; gap:12px; margin:18px 0 16px; }
+  .socials a{
+    width:36px; height:36px; border-radius:50%; background:var(--panel-2); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; color:var(--text-dim);
+    transition: all .18s ease; text-decoration:none;
+  }
+  .socials a svg{ width:16px; height:16px; fill:currentColor; }
+  .socials a:hover{ color:#fff; border-color:transparent; transform:translateY(-2px); background:var(--red); }
+
+  .about{ font-size:13px; line-height:1.65; color:var(--text-dim); text-align:left; }
+  .about strong{ color:var(--text); }
+
+  .divider{ height:1px; background:var(--line); margin:18px 0; }
+
+  /* ---- Right side ---- */
+  .section-title{
+    font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:1px; display:flex; align-items:center; gap:8px;
+    margin-bottom:14px;
+  }
+  .section-title::before{ content:""; width:4px; height:18px; background:var(--red); display:inline-block; border-radius:2px;}
+
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:12px; }
+  @media(max-width:760px){ .stat-grid{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:480px){ .stat-grid{ grid-template-columns:1fr; } }
+  .stat{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 18px; position:relative;
+  }
+  .stat .label{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); font-weight:700;}
+  .stat .value{ font-family:'IBM Plex Mono',monospace; font-size:23px; font-weight:600; margin-top:8px; color:var(--gold); }
+  .stat.pkg{ grid-column:span 1; background:linear-gradient(135deg, #1b1e26, #2a2f3d); border-color:#1b1e26; }
+  .stat.pkg .label{ color:#c7cbd6; }
+  .stat.pkg .value{ color:#ffd76a; font-size:26px; }
+
+  .vat-banner{
+    display:flex; align-items:flex-start; gap:10px; background:#fff6e0; border:1px solid #f0d68a;
+    border-radius:10px; padding:12px 14px; font-size:12px; color:#7a5b06; line-height:1.6; margin-bottom:26px;
+  }
+  .vat-banner b{ color:#5c4400; }
+  .vat-banner .badge{
+    background:var(--gold); color:#3a2b00; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    font-weight:700; padding:2px 8px; border-radius:20px; letter-spacing:0.5px; flex-shrink:0; margin-top:1px;
+  }
+
+  .analytics{ padding:22px; }
+  .charts{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media(max-width:760px){ .charts{ grid-template-columns:1fr; } }
+  .chart-title{ font-size:12.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; font-weight:700;}
+  .bar-row{ display:grid; grid-template-columns:64px 1fr; align-items:center; gap:10px; margin-bottom:10px; }
+  .bar-row .bl{ font-size:12px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace; text-align:right;}
+  .bar-track{ background:var(--panel-2); border-radius:6px; height:26px; position:relative; overflow:hidden; border:1px solid var(--line);}
+  .bar-fill{
+    height:100%; border-radius:6px; background:linear-gradient(90deg, var(--teal), var(--gold));
+    display:flex; align-items:center; justify-content:flex-end; padding-right:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:700; color:#ffffff;
+    transition: width 0.6s cubic-bezier(.2,.8,.2,1);
+    min-width: 34px;
+  }
+
+  /* Edit button: hidden from public view by default.
+     Only shown when the page is loaded with ?edit=1 in the URL. */
+  .edit-toggle{
+    display:none;
+    font-size:11.5px; color:var(--text-faint); border:1px dashed var(--line); border-radius:7px;
+    padding:6px 10px; cursor:pointer; background:transparent; font-family:'IBM Plex Mono',monospace;
+  }
+  .edit-toggle:hover{ color:var(--teal); border-color:var(--teal); }
+  .panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .editor{
+    display:none; margin-top:18px; padding-top:18px; border-top:1px dashed var(--line);
+    grid-template-columns:1fr 1fr; gap:16px;
+  }
+  .editor.open{ display:grid; }
+  @media(max-width:760px){ .editor{ grid-template-columns:1fr; } }
+  .editor label{ font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:6px;}
+  .editor textarea{
+    width:100%; height:130px; background:var(--panel-2); border:1px solid var(--line); border-radius:8px;
+    color:#0a6b60; font-family:'IBM Plex Mono',monospace; font-size:11.5px; padding:10px; resize:vertical;
+  }
+  .editor .apply-row{ grid-column:1/-1; display:flex; justify-content:flex-end; gap:8px; }
+  .editor button.apply{
+    background:var(--teal); color:#fff; border:none; border-radius:7px; padding:8px 16px;
+    font-size:12px; font-weight:700; cursor:pointer;
+  }
+  .editor .err{ grid-column:1/-1; color:var(--red); font-size:11.5px; font-family:'IBM Plex Mono',monospace; display:none;}
+
+  footer{ max-width:1180px; margin:30px auto 0; text-align:center; color:var(--text-faint); font-size:11.5px; }
+</style>
+</head>
+<body>
+
+  <!-- Ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-tag">MEDIA KIT</div>
+    <div class="ticker-track">
+      <span><span class="live-dot"></span> AHMED A. GHONEM — DIGITAL CREATOR</span>
+      <span>TECH &amp; AI CONTENT SPECIALIST</span>
+      <span>APPS · AI PRODUCTS · REVIEWS</span>
+      <span><span class="live-dot"></span> AHMED A. GHONEM — DIGITAL CREATOR</span>
+      <span>TECH &amp; AI CONTENT SPECIALIST</span>
+      <span>APPS · AI PRODUCTS · REVIEWS</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- Profile Card -->
+    <div class="card profile">
+      <div class="avatar-wrap">
+        <img src="https://drive.google.com/thumbnail?id=19MYVB17FAhiPa92JuBwHz2MPz58jFk9T&sz=w1000" alt="Ahmed A. Ghonem" referrerpolicy="no-referrer">
+        <div class="onair">ON AIR</div>
+      </div>
+
+      <div class="name">Ahmed A. Ghonem</div>
+      <div class="role">Tech &amp; AI Content Creator</div>
+      <div class="loc">MENA Region</div>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/iphone.band/" target="_blank" rel="noopener" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.02-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ghonemz" target="_blank" rel="noopener" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 0h-3.3v16.3a3 3 0 1 1-2.1-2.86V10.1a6.3 6.3 0 1 0 5.4 6.24V8.15a8.5 8.5 0 0 0 5 1.62V6.5a5.1 5.1 0 0 1-5-4.9z"/></svg>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="about">
+        <strong>About —</strong> Ahmed is a fast-growing content creator in the MENA region, with his majority audience based in Saudi Arabia. He specializes in tech content — particularly AI products, software applications, and mobile app reviews — breaking down the latest innovations for an engaged, tech-savvy audience.
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div>
+      <div class="section-title">Sponsorship Rates</div>
+      <div class="stat-grid">
+        <div class="stat pkg">
+          <div class="label">Package Price · All Platforms</div>
+          <div class="value" id="pPackage">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Instagram Reel</div>
+          <div class="value" id="pInsta">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">TikTok Video</div>
+          <div class="value" id="pTikTok">—</div>
+        </div>
+      </div>
+
+      <div class="vat-banner">
+        <span class="badge">FEES</span>
+        <div>A <b>3–6% processing fee</b> applies if payment is made via <b>PayPal</b> or <b>Payoneer</b>. Payment can also be made via <b>bank transfer</b> at no additional fee.</div>
+      </div>
+
+      <div class="card analytics">
+        <div class="panel-head">
+          <div class="section-title" style="margin-bottom:0">Channel Analytics</div>
+          <button class="edit-toggle" id="editBtn">✎ edit chart data</button>
+        </div>
+        <div class="charts">
+          <div>
+            <div class="chart-title">Country-wise View %</div>
+            <div id="chartCountry"></div>
+          </div>
+          <div>
+            <div class="chart-title">Age-wise Viewership %</div>
+            <div id="chartAge"></div>
+          </div>
+        </div>
+        <div class="editor" id="editorBox">
+          <div>
+            <label>Country data — JSON [{"label":"Saudi Arabia","value":30.2}, …]</label>
+            <textarea id="taCountry"></textarea>
+          </div>
+          <div>
+            <label>Age data — JSON [{"label":"18-24","value":14.8}, …]</label>
+            <textarea id="taAge"></textarea>
+          </div>
+          <div class="err" id="editErr">Invalid JSON — please check formatting.</div>
+          <div class="apply-row">
+            <button class="apply" id="applyBtn">Apply &amp; Redraw</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Qabunch — Creating Impact. Growing Brands. support@qabunch.com</footer>
+
+<script>
+/* ============================================================
+   CONFIG — edit these values to update the whole page.
+   ============================================================ */
+const CONFIG = {
+  pricing: {
+    package: 1200,
+    instagramReel: 999,
+    tiktok: 950
+  },
+  analytics: {
+    country: [
+      { label: "Saudi Arabia", value: 30.2 },
+      { label: "UAE", value: 20 },
+      { label: "Egypt", value: 16 },
+      { label: "Qatar", value: 4 },
+      { label: "USA", value: 1 }
+    ],
+    age: [
+      { label: "18-24", value: 12.4 },
+      { label: "25-34", value: 33.7 },
+      { label: "35-44", value: 28.1 },
+      { label: "45-54", value: 16.9 },
+      { label: "55-64", value: 8.9 }
+    ]
+  }
+};
+
+const fmt = v => v == null ? "NA" : `$${v.toLocaleString()}`;
+
+function fillStats(){
+  document.getElementById('pPackage').textContent = fmt(CONFIG.pricing.package);
+  document.getElementById('pInsta').textContent   = fmt(CONFIG.pricing.instagramReel);
+  document.getElementById('pTikTok').textContent  = fmt(CONFIG.pricing.tiktok);
+}
+
+/* ---- Dynamic bar chart renderer ----
+   renderBars(containerId, data) where data = [{label, value}, ...]
+   Pass any array of x/y pairs and it redraws automatically. */
+function renderBars(containerId, data){
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+  const max = Math.max(...data.map(d => d.value), 1) * 1.1;
+  data.forEach((d, i) => {
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `
+      <div class="bl">${d.label}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:0%" data-target="${(d.value/max*100).toFixed(1)}">${d.value}</div>
+      </div>`;
+    container.appendChild(row);
+    requestAnimationFrame(()=> {
+      setTimeout(()=>{
+        const fill = row.querySelector('.bar-fill');
+        fill.style.width = fill.dataset.target + '%';
+      }, i*70);
+    });
+  });
+}
+
+function drawCharts(){
+  renderBars('chartCountry', CONFIG.analytics.country);
+  renderBars('chartAge', CONFIG.analytics.age);
+}
+
+/* ---- Editable chart data panel ---- */
+const editorBox = document.getElementById('editorBox');
+const taCountry = document.getElementById('taCountry');
+const taAge = document.getElementById('taAge');
+document.getElementById('editBtn').addEventListener('click', ()=>{
+  taCountry.value = JSON.stringify(CONFIG.analytics.country, null, 2);
+  taAge.value = JSON.stringify(CONFIG.analytics.age, null, 2);
+  editorBox.classList.toggle('open');
+});
+document.getElementById('applyBtn').addEventListener('click', ()=>{
+  const errEl = document.getElementById('editErr');
+  try{
+    const newCountry = JSON.parse(taCountry.value);
+    const newAge = JSON.parse(taAge.value);
+    CONFIG.analytics.country = newCountry;
+    CONFIG.analytics.age = newAge;
+    errEl.style.display = 'none';
+    drawCharts();
+  }catch(e){
+    errEl.style.display = 'block';
+  }
+});
+
+/* ---- Reveal the edit button only for the page owner ----
+   Visit this page with ?edit=1 appended to the URL to see the
+   "edit chart data" button. Regular visitors never see it. */
+const params = new URLSearchParams(window.location.search);
+if (params.get('edit') === '1') {
+  document.getElementById('editBtn').style.display = 'inline-block';
+}
+
+fillStats();
+drawCharts();
+</script>
+</body>
+</html>
