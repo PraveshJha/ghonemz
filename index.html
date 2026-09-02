@@ -95,6 +95,9 @@
 
   .about{ font-size:13px; line-height:1.65; color:var(--text-dim); text-align:left; }
   .about strong{ color:var(--text); }
+  .about .contact-line{ margin-top:10px; display:block; }
+  .about .contact-line a{ color:var(--teal); text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:12.5px; }
+  .about .contact-line a:hover{ text-decoration:underline; }
 
   .divider{ height:1px; background:var(--line); margin:18px 0; }
 
@@ -118,13 +121,26 @@
   .stat.pkg .label{ color:#c7cbd6; }
   .stat.pkg .value{ color:#ffd76a; font-size:26px; }
 
+  .info-banners{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:26px; }
+  @media(max-width:760px){ .info-banners{ grid-template-columns:1fr; } }
+
   .vat-banner{
     display:flex; align-items:flex-start; gap:10px; background:#fff6e0; border:1px solid #f0d68a;
-    border-radius:10px; padding:12px 14px; font-size:12px; color:#7a5b06; line-height:1.6; margin-bottom:26px;
+    border-radius:10px; padding:12px 14px; font-size:12px; color:#7a5b06; line-height:1.6;
   }
   .vat-banner b{ color:#5c4400; }
   .vat-banner .badge{
     background:var(--gold); color:#3a2b00; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    font-weight:700; padding:2px 8px; border-radius:20px; letter-spacing:0.5px; flex-shrink:0; margin-top:1px;
+  }
+
+  .license-banner{
+    display:flex; align-items:flex-start; gap:10px; background:#e7faf6; border:1px solid #a7e6d9;
+    border-radius:10px; padding:12px 14px; font-size:12px; color:#0a4a41; line-height:1.6;
+  }
+  .license-banner b{ color:#063932; }
+  .license-banner .badge{
+    background:var(--teal); color:#ffffff; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
     font-weight:700; padding:2px 8px; border-radius:20px; letter-spacing:0.5px; flex-shrink:0; margin-top:1px;
   }
 
@@ -213,6 +229,7 @@
 
       <div class="about">
         <strong>About —</strong> Ahmed is a fast-growing content creator in the MENA region, with his majority audience based in Saudi Arabia. He specializes in tech content — particularly AI products, software applications, and mobile app reviews — breaking down the latest innovations for an engaged, tech-savvy audience.
+        <span class="contact-line"><strong>Business:</strong> <a href="mailto:pravesh.jha@qabunch.com">pravesh.jha@qabunch.com</a></span>
       </div>
     </div>
 
@@ -234,9 +251,15 @@
         </div>
       </div>
 
-      <div class="vat-banner">
-        <span class="badge">FEES</span>
-        <div>A <b>3–6% processing fee</b> applies if payment is made via <b>PayPal</b> or <b>Payoneer</b>. Payment can also be made via <b>bank transfer</b> at no additional fee.</div>
+      <div class="info-banners">
+        <div class="vat-banner">
+          <span class="badge">FEES</span>
+          <div>A <b>3–6% processing fee</b> applies if payment is made via <b>PayPal</b> or <b>Payoneer</b>. Payment can also be made via <b>bank transfer</b> at no additional fee.</div>
+        </div>
+        <div class="license-banner">
+          <span class="badge">LICENSE</span>
+          <div>Adding a product link to the Linktree for a period of <b>5 days</b> is priced at <b>150 USD</b>. Ad code usage rights are available on a monthly basis: <b>1 month</b> for <b>300 USD</b>, <b>2 months</b> for <b>500 USD</b>, and <b>3 months</b> for <b>600 USD</b>.</div>
+        </div>
       </div>
 
       <div class="card analytics">
